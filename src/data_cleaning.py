@@ -48,7 +48,7 @@ class DataCleaning:
             logging.error(f"Error in handling data: {e}")
             raise e
 
-if __name__ == "__main__":
-    data = pd.read_csv("../data/data.csv")
-    data_cleaning = DataCleaning(data, DataPreProcessStrategy())
-    data_cleaning.handle_data()
+# if __name__ == "__main__":
+#     data = pd.read_csv("../data/data.csv")
+#     data_cleaning = DataCleaning(data, DataPreProcessStrategy())
+#     data_cleaning.handle_data()
