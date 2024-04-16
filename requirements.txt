@@ -5,4 +5,4 @@ optuna
 streamlit
 xgboost
 markupsafe
-zenml==0.35.1
+zenml==0.43
