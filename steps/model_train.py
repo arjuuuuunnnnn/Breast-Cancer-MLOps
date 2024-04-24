@@ -23,8 +23,8 @@ def train_model(
         if config.model_name == "LinearRegression":
             mlflow.sklearn.autolog()
             model = LinearRegressionModel()
-            train_model = model_train(X_train, y_train)
-            return train_model
+            trained_model = model.train(X_train, y_train)
+            return trained_model
 
         else:
             raise ValueError(f"MODEL {config.model_name} not supported")
