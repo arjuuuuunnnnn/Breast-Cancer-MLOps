@@ -8,4 +8,4 @@ if __name__ == "__main__":
 
 # now run this pipeline, and then you'll get something in the form pasted below and paste the same thing below and run
 # the same thing, and then you are done
-# mlflow ui --backend-store-uri-file:/home/hemanth/only_machine_learning
+# mlflow ui --backend-store-uri-file:/home/hemanth/conda_ml
