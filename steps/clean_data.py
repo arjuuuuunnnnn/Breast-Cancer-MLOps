@@ -19,7 +19,7 @@ def clean_df(df: pd.DataFrame) -> Tuple[
         data_cleaning = DataCleaning(df, process_strategy)
         processed_data = data_cleaning.handle_data()
 
-        divide_strategy = DataDivideStrategy()
+        divide_strategy = DataDivisionStrategy()
         data_cleaning = DataCleaning(processed_data, divide_strategy)
         X_train, X_test, y_train, y_test = data_cleaning.handle_data()
         logging.info("data cleaning completed")
