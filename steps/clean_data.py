@@ -1,7 +1,7 @@
 import logging
 import pandas as pd 
 from zenml import step
-from src.data_cleaning import DataCleaning, DataDivideStrategy, DataPreProcessStrategy
+from src.data_cleaning import DataCleaning, DataDivisionStrategy, DataPreProcessStrategy
 from typing_extensions import Annotated
 from typing import Tuple
 
