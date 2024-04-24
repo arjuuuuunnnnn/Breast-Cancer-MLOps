@@ -8,7 +8,7 @@ class Evaluation(ABC):
     def calculate_scores(self, y_true:np.ndarray, y_pred:np.ndarray):
         
 class MSE(Evaluation):
-        def calculate_scores(self, y_true:np.ndarray, y_pred:np.ndarray):
+    def calculate_scores(self, y_true:np.ndarray, y_pred:np.ndarray):
         try:
             logging.info("Calculating MSE")
             mse = mean_squared_error(y_true, y_pred)
