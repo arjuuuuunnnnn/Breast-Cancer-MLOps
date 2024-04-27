@@ -5,7 +5,8 @@ from typing import Union
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import OneHotEncoder
+from sklearn.preprocessing import LabelEncoder
+from sklearn.preprocessing import StandardScaler
 
 class DataStrategy(ABC):
     @abstractmethod
@@ -17,9 +18,9 @@ class DataPreProcessStrategy(DataStrategy):
     def handle_data(self, data:pd.DataFrame) -> pd.DataFrame:
 
         try:
-            # any preprocessing like removing or adding columns are done here
-            # data = data.drop([])
-            encoder = OneHotEncoder(sparse=False)
+            # Preprocessing
+            label_encoder = LabelEncoder()
+            data["diagnosis"] = label_encoder.fit_transform(data["diagnosis"].values)
             return data
         
         except Exception as e:
@@ -32,6 +33,8 @@ class DataDivisionStrategy(DataStrategy):
             X = data.drop(["diagnosis"], axis=1)
             y = data["diagnosis"]
             X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
+            X_train = StandardScaler().fit_transform(X_train)
+            X_test = StandardScaler().fit_transform(X_test)
             return X_train, X_test, y_train, y_test
         except Exception as e:
             logging.error(f"Error in dividing data into train and test: {e}")
