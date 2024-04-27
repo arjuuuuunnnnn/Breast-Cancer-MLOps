@@ -5,6 +5,7 @@ from typing import Union
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import OneHotEncoder
 
 class DataStrategy(ABC):
     @abstractmethod
@@ -18,6 +19,7 @@ class DataPreProcessStrategy(DataStrategy):
         try:
             # any preprocessing like removing or adding columns are done here
             # data = data.drop([])
+            encoder = OneHotEncoder(sparse=False)
             return data
         
         except Exception as e:
