@@ -2,7 +2,7 @@ import logging
 import pandas as pd
 from zenml import step 
 from src.model_dev import LinearRegressionModel
-from sklearn.base import RegressorMixin
+from sklearn.base import RegressorMixin, ClassifierMixin
 from .config import ModelNameConfig
 import mlflow
 from zenml.client import Client
@@ -16,7 +16,7 @@ def train_model(
         y_train:pd.Series,
         y_test:pd.Series,
         config:ModelNameConfig
-    ) -> RegressorMixin:
+    ) -> [ClassifierMixin, RegressorMixin]:
 
     try:
         model = None

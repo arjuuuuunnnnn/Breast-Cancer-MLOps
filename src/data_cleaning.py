@@ -21,6 +21,7 @@ class DataPreProcessStrategy(DataStrategy):
             # Preprocessing
             label_encoder = LabelEncoder()
             data["diagnosis"] = label_encoder.fit_transform(data["diagnosis"].values)
+            data = data.apply(lambda x: x.fillna(x.mean()), axis=0)
             return data
         
         except Exception as e:

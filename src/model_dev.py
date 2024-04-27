@@ -1,6 +1,8 @@
 import logging
 from abc import ABC, abstractmethod
 from sklearn.linear_model import LinearRegression
+from sklearn.ensemble import HistGradientBoostingClassifier
+
 class Model(ABC):
 
     @abstractmethod
@@ -14,7 +16,8 @@ class LinearRegressionModel(Model):
     def train(self, X_train, y_train, **kwargs):
 
         try:
-            reg = LinearRegression(**kwargs)
+            # reg = LinearRegression(**kwargs)
+            reg = HistGradientBoostingClassifier()
             reg.fit(X_train, y_train)
             logging.info("Model Training completed")
             return reg
